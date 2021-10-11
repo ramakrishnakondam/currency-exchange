@@ -1,0 +1,15 @@
+apiVersion: skaffold/v2beta23
+kind: Config
+metadata:
+  name: currency-exchange
+build:
+  artifacts:
+  - image: ramakrishnar2/currency-exchange
+    docker:
+      dockerfile: Dockerfile
+  local:
+    push: true
+deploy:
+  kubectl:
+    manifests:
+    - deployment.yaml
